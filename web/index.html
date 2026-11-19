@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ANSI Second Reality</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; }
+    body { margin: 0; background: #000; color: #e7e7e7; }
+    #terminal { position: fixed; inset: 0; }
+    #terminal canvas { transform: scale(var(--canvas-scale, 1)); transform-origin: top left; }
+    #overlay {
+      position: fixed; top: .75rem; right: .75rem; z-index: 1;
+      display: grid; justify-items: end; gap: .4rem;
+    }
+    button, output {
+      border: 1px solid #555; border-radius: .35rem; padding: .45rem .65rem;
+      background: #181818; color: inherit;
+    }
+    button { cursor: pointer; font: inherit; }
+    output { font: .8rem/1.5 ui-monospace, monospace; white-space: pre-line; }
+    #gate { position: fixed; inset: 0; display: grid; place-items: center; }
+    #gate[hidden], [hidden] { display: none; }
+    #status { position: fixed; bottom: .75rem; left: .75rem; margin: 0; }
+  </style>
+</head>
+<body>
+  <main id="terminal" aria-label="Puzzle Terminal"></main>
+  <section id="overlay" aria-label="Playback statistics">
+    <button id="stats-toggle" type="button" aria-controls="stats" aria-expanded="false">Stats</button>
+    <output id="stats" aria-live="off" hidden></output>
+  </section>
+  <div id="gate"><button id="start" type="button" disabled>Click to start</button></div>
+  <p id="status" role="status">Loading…</p>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

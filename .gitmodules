@@ -1,0 +1,3 @@
+[submodule "third_party/SecondRealityPlusPlus"]
+	path = third_party/SecondRealityPlusPlus
+	url = https://github.com/XorJS/SecondRealityPlusPlus.git
